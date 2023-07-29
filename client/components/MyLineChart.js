@@ -36,37 +36,51 @@ export default function MyLineChart({ chartData, symbol }) {
     }
   };
 
+  const renderBtnSelect = (btn) => {
+    if (btn === dateFormat) {
+      return {
+        color: "yellow",
+        fontWeight: "bold",
+      };
+    } else {
+      return {
+        color: "#fff",
+        fontWeight: "bold",
+      };
+    }
+  };
+
   return (
     <View>
       {/* ======select buttons========================================================= */}
       <View style={styles.time}>
         <TouchableOpacity onPress={() => setDateFormat("1min")}>
-          <Text style={styles.subtitle}>1M</Text>
+          <Text style={renderBtnSelect("1min")}>1M</Text>
         </TouchableOpacity>
 
         <Text style={styles.subtitle}>|</Text>
         <TouchableOpacity onPress={() => setDateFormat("5min")}>
-          <Text style={styles.subtitle}>5M</Text>
+          <Text style={renderBtnSelect("5min")}>5M</Text>
         </TouchableOpacity>
 
         <Text style={styles.subtitle}>|</Text>
         <TouchableOpacity onPress={() => setDateFormat("15min")}>
-          <Text style={styles.subtitle}>15M</Text>
+          <Text style={renderBtnSelect("15min")}>15M</Text>
         </TouchableOpacity>
 
         <Text style={styles.subtitle}>|</Text>
         <TouchableOpacity onPress={() => setDateFormat("30min")}>
-          <Text style={styles.subtitle}>30M</Text>
+          <Text style={renderBtnSelect("30min")}>30M</Text>
         </TouchableOpacity>
 
         <Text style={styles.subtitle}>|</Text>
         <TouchableOpacity onPress={() => setDateFormat("1hour")}>
-          <Text style={styles.subtitle}>1H</Text>
+          <Text style={renderBtnSelect("1hour")}>1H</Text>
         </TouchableOpacity>
 
         <Text style={styles.subtitle}>|</Text>
         <TouchableOpacity onPress={() => setDateFormat("4hour")}>
-          <Text style={styles.subtitle}>4H</Text>
+          <Text style={renderBtnSelect("4hour")}>4H</Text>
         </TouchableOpacity>
       </View>
       <LineChart
@@ -152,6 +166,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
   },
+
   table: {
     display: "flex",
     flexDirection: "row",

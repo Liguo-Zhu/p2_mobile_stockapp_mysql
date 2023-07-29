@@ -80,7 +80,6 @@ export default function DetailsScreen({ navigation, route }) {
         ]);
 
         if (isMounted) {
-          console.log("res1: ", res1);
           setStockData(res1.data);
           setChartData({
             min_1: processData(res2[0].data),
